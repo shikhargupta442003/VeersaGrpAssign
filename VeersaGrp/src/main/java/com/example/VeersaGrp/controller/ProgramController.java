@@ -4,6 +4,7 @@ package com.example.VeersaGrp.controller;
 import com.example.VeersaGrp.dto.ProgramDto;
 import com.example.VeersaGrp.model.Program;
 import com.example.VeersaGrp.service.ProgramService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
