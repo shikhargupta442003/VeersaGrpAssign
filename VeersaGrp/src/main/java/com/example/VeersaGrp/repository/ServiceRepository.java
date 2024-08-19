@@ -1,4 +1,7 @@
 package com.example.VeersaGrp.repository;
 
-public interface ServiceRepository {
+import com.example.VeersaGrp.model.Service;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ServiceRepository extends JpaRepository<Service, Long> {
 }
