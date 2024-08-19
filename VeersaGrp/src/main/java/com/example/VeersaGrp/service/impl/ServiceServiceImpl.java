@@ -9,11 +9,14 @@ import com.example.VeersaGrp.repository.ClientRepository;
 import com.example.VeersaGrp.repository.ProgramRepository;
 import com.example.VeersaGrp.repository.ServiceRepository;
 import com.example.VeersaGrp.service.ServiceService;
+import lombok.AllArgsConstructor;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@AllArgsConstructor
+@org.springframework.stereotype.Service
 public class ServiceServiceImpl implements ServiceService {
 
     private ServiceRepository serviceRepository;
@@ -24,15 +27,15 @@ public class ServiceServiceImpl implements ServiceService {
     public ServiceDto registerService(ServiceDto serviceDto) {
         Service service = ServiceMapper.INSTANCE.toEntity(serviceDto);
 
-        if (serviceDto.getProgramIds() != null) {
-            List<Program> programs = programRepository.findAllById(serviceDto.getProgramIds());
-            service.setPrograms(programs);
-        }
-
-        if (serviceDto.getClientIds() != null) {
-            Set<Client> clients = new HashSet<>(clientRepository.findAllById(serviceDto.getClientIds()));
-            service.setClients(clients);
-        }
+//        if (serviceDto.getProgramIds() != null && !serviceDto.getProgramIds().isEmpty()) {
+//            List<Program> programs = programRepository.findAllById(serviceDto.getProgramIds());
+//            service.setPrograms(programs);
+//        }
+//
+//        if (serviceDto.getClientIds() != null && !serviceDto.getClientIds().isEmpty()) {
+//            Set<Client> clients = new HashSet<>(clientRepository.findAllById(serviceDto.getClientIds()));
+//            service.setClients(clients);
+//        }
 
         Service savedService = serviceRepository.save(service);
 

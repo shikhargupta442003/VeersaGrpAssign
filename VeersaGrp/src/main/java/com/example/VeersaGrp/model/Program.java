@@ -32,4 +32,8 @@ public class Program {
 
     @ManyToMany(mappedBy = "programs")
     private Set<Service> services =new HashSet<>();
+
+    public void setServices(Service service) {
+        this.services.add(service);
+    }
 }

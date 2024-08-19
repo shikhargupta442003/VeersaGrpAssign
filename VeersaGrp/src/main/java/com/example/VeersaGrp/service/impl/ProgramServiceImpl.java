@@ -23,12 +23,15 @@ public class ProgramServiceImpl implements ProgramService {
         Program program = ProgramMapper.INSTANCE.toEntity(programDto);
         for(Long serviceId:serviceIds){
             com.example.VeersaGrp.model.Service service= serviceRepository.getReferenceById(serviceId);
-
+            program.setServices(service);
         }
+        Program result= programRepository.save(program);
+        return ProgramMapper.INSTANCE.toDto(result);
     }
 
     @Override
     public ProgramDto findProgram(Long programId) {
-        return null;
+        Program program=programRepository.getReferenceById(programId);
+        return ProgramMapper.INSTANCE.toDto(program);
     }
 }
