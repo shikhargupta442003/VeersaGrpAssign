@@ -28,7 +28,8 @@ public class ClientController {
 
     @GetMapping("{clientId}")
     public ResponseEntity<ClientDto> findClient(@PathVariable Long clientId ){
-        ClientDto
+        ClientDto result=clientService.findClient(clientId);
+        return new ResponseEntity<>(result,HttpStatus.FOUND);
     }
 
 
