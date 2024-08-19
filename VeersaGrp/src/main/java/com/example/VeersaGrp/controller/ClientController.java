@@ -23,13 +23,9 @@ public class ClientController {
         this.clientService=clientService;
     }
 
-    @PostMapping("")
+    @PostMapping
     public ResponseEntity<ClientDto> registerClient(@RequestBody ClientDto clientDto){
         ClientDto result= clientService.registerClient(clientDto);
-        if(result.equals("Client registered successfully")){
-            return new ResponseEntity<>(result, HttpStatus.CREATED);
-        }else{
-            return new ResponseEntity<>(result,HttpStatus.BAD_REQUEST);
-        }
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 }
