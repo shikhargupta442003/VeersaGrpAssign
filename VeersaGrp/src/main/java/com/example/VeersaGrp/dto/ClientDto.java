@@ -2,10 +2,12 @@ package com.example.VeersaGrp.dto;
 
 import com.example.VeersaGrp.model.Program;
 import com.example.VeersaGrp.model.Service;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.example.VeersaGrp.model.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToMany;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -22,6 +24,7 @@ public class ClientDto {
     private String name;
 
     private Set<ServiceDto> services ;
+
     private List<ProgramDto> programs;
 
 

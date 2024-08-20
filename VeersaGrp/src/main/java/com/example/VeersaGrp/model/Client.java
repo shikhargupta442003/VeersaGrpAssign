@@ -3,10 +3,7 @@ package com.example.VeersaGrp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.*;
 
@@ -16,10 +13,12 @@ import java.util.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "public")
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long clientId;
 
 
@@ -32,4 +31,9 @@ public class Client {
     @ManyToMany(mappedBy = "clients",cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Service> services =new HashSet<>();
+
+
+    @ManyToMany(mappedBy = "clientList", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JsonIgnore
+    private Set<User> userList = new HashSet<>();
 }

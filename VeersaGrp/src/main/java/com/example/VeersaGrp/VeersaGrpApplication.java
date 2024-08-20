@@ -8,6 +8,6 @@ public class VeersaGrpApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VeersaGrpApplication.class, args);
+		System.out.println("DONE");
 	}
-
 }

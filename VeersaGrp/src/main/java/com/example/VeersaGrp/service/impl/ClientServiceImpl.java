@@ -25,6 +25,7 @@ public class ClientServiceImpl implements ClientService {
     public ClientDto findClient(Long clientId) {
         Client client =clientRepository.findById(clientId)
                         .orElseThrow(() -> new RuntimeException("Client not found"));
+        System.out.println(client.getUserList());
         return ClientMapper.INSTANCE.toDto(client);
     }
 }

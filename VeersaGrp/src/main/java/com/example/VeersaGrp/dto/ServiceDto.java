@@ -19,7 +19,9 @@ public class ServiceDto {
 
     private String name;
 
-    private List<Long> programIds;
+    private List<ProgramDto> programs;
 
-    private Set<Long> clientIds;
+    private Set<ClientDto> clients;
+
+
 }
